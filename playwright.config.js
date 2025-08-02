@@ -1,8 +1,10 @@
 import { defineConfig, devices } from '@playwright/test';
 
 export default defineConfig({
-  reporter: [['allure-playwright']],
-
+  reporter: [
+    ['line'],
+    ['allure-playwright']
+  ],
 
   timeout: 60000,          // 60s for the entire test
 
@@ -10,8 +12,7 @@ export default defineConfig({
     trace: 'on',
     video: 'on',
     screenshot: 'on',
-    actionTimeout: 30000,  // 15s for each action like `click`
-
+    actionTimeout: 30000,  // 30s for each action like `click`
     headless: false,
   },
 
