@@ -1,0 +1,21 @@
+{
+  "name": "playwright-project",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "format": "prettier --write ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@playwright/test": "^1.51.1",
+    "@types/node": "^22.13.5",
+    "allure-playwright": "^3.2.1",
+    "prettier": "^2.5.1"
+  },
+  "dependencies": {
+    "playwright-stealth": "^0.0.1"
+  }
+}

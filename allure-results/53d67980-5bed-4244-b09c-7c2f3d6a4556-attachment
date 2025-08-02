@@ -1,0 +1,413 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: Landing page of rupyy.com loads and key elements are visible
+- Location: /Users/rajatagarwal/playwright-project/tests/Rupyy.spec.js:9:1
+
+# Error details
+
+```
+Error: expect(received).toBe(expected) // Object.is equality
+
+Expected: true
+Received: false
+    at /Users/rajatagarwal/playwright-project/tests/Rupyy.spec.js:25:22
+```
+
+# Page snapshot
+
+```yaml
+- banner:
+  - link "Rupyy":
+    - img "Rupyy"
+  - navigation:
+    - list:
+      - listitem:
+        - link "Our Story"
+      - listitem:
+        - link "Loans"
+      - listitem:
+        - link "Calculators"
+      - listitem:
+        - link "Resources"
+      - listitem:
+        - link "Become a Partner"
+  - button "button":
+    - button "Logindown-arrow":
+      - text: Login
+      - img "down-arrow"
+- img "Rupyy Banner"
+- heading "header-lt" [level=1]:
+  - img "header-lt"
+- list:
+  - listitem:
+    - link "New Car Loan New car loan":
+      - img "New Car Loan"
+      - paragraph:
+        - emphasis: New car
+        - emphasis: loan
+  - listitem:
+    - link "Used Car Loan Used car loan":
+      - img "Used Car Loan"
+      - paragraph:
+        - emphasis: Used car
+        - emphasis: loan
+  - listitem:
+    - link "EV Loan Green loan":
+      - img "EV Loan"
+      - paragraph:
+        - emphasis: Green
+        - emphasis: loan
+  - listitem:
+    - link "Two wheeler Two wheeler Loan":
+      - img "Two wheeler"
+      - paragraph:
+        - emphasis: Two wheeler
+        - emphasis: Loan
+  - listitem:
+    - link "Loan Against Car Loan Against Car":
+      - img "Loan Against Car"
+      - paragraph:
+        - emphasis: Loan
+        - emphasis: Against Car
+- list:
+  - listitem: ₹49,792 Cr+ Loans Processed
+  - listitem: 998,000+ Satisfied Customers
+  - listitem: 37,000+ Channel Partners
+  - listitem: 18,000+ Pincodes
+- img "Star Rank Icon"
+- emphasis: Rated 4.8/5 on Google
+- heading "Benefits of Rupyy" [level=2]
+- paragraph
+- img "Digital Lending icon"
+- heading "Digital lending" [level=3]
+- paragraph: Paper-less, digital, hassle-free process including features such as video KYC, digital agreement, etc.
+- img "Multiple Loan offers"
+- heading "Multiple loan offers" [level=3]
+- paragraph: Multiple finance providing multiple offers leading to a range of options for the customer
+- img "Attractive car loan interest rates"
+- heading "Attractive car loan interest rates" [level=3]
+- paragraph: Comparable EMIs with multiple offers
+- img "Digital Lending icon"
+- heading "Flexible loan tenure" [level=3]
+- paragraph: Flexible Loan repayment tenure that can be negotiated
+- heading "Avail loan in 4 simple steps" [level=2]
+- paragraph
+- text: "1"
+- img "Submit your details"
+- heading "Submit your details" [level=3]
+- paragraph: Fill your details on the platform
+- text: "2"
+- img "Select your loan offer"
+- heading "Select your loan offer" [level=3]
+- paragraph: Choose from available offers
+- text: "3"
+- img "Complete instant V-KYC online"
+- heading "Complete instant V-KYC online" [level=3]
+- paragraph: Verify your identity
+- text: "4"
+- img "Get your loan disbursed"
+- heading "Get your loan disbursed" [level=3]
+- paragraph: Submit application
+- paragraph
+- heading "Banking and Lending Partners" [level=2]
+- list:
+  - listitem:
+    - link "Yes Bank":
+      - img "Yes Bank"
+    - link "View FD rates"
+  - listitem:
+    - img "Icici Bank"
+  - listitem:
+    - img "HDFC Bank"
+  - listitem:
+    - img "Bank of Baroda"
+  - listitem:
+    - img "Axis Bank"
+  - listitem:
+    - img "IDFC First Bank"
+  - listitem:
+    - img "Kotak Mahindra"
+  - listitem:
+    - img "Indusind Bank"
+  - listitem:
+    - img "TVS Credit"
+  - listitem:
+    - img "mahindra finance"
+  - listitem:
+    - img "Girnar Capital"
+  - listitem:
+    - img "Union Bank of india"
+  - listitem:
+    - img "Bank of india"
+  - listitem:
+    - img "bajaj-finserv"
+  - listitem:
+    - img "AU small finance bank"
+  - listitem:
+    - img "AU small finance bank"
+  - listitem:
+    - img "AU small finance bank"
+- button "Previous Slide": 
+- button "Next Slide": 
+- heading "Customers Speak" [level=2]
+- list:
+  - listitem:
+    - paragraph: Rupyy is a very reliable loan company. Although my case took some time, the team handled everything efficiently. They were supportive throughout the process and ensured my loan was sanctioned properly. I was very satisfied with the overall experience. Thank you to the Rupyy team for the great service.
+    - img "customer"
+    - heading "Manish Singhaniya Secured loan in May 2025" [level=3]
+  - listitem:
+    - paragraph: Amazing, hassle-free experience I had here. Very smooth process without any extra documentation. Special thanks to the team at Rupyy for being understanding and supportive. Highly recommended for any kind of car loan.
+    - img "customer"
+    - heading "Mehul Jangid Secured loan in March 2025" [level=3]
+  - listitem:
+    - paragraph: I am an Indian Army personnel and was not physically available to take delivery of the vehicle. Thank you to the Rupyy team, who helped me a lot with this loan. The team coordinated with me at every step, answered my calls in a single ring—even late at night.
+    - img "customer"
+    - heading "Hemraj Sahu Secured loan in Feb 2025" [level=3]
+  - listitem:
+    - paragraph: I availed a used car loan from Rupyy for the first time and I’m happy to share that your field staff was polite, efficient, courteous, quick, and overall, an excellent, respectful team well-suited for public dealing.
+    - img "customer"
+    - heading "Dr Vineet Kumar Garg Secured loan in Feb 2025" [level=3]
+  - listitem:
+    - paragraph: I like it when people are responsive—and the Rupyy team is very good at this. They called quickly, shared all the information, and processed my loan application fast. I got a high-value debt consolidation loan through Rupyy. Really delighted!
+    - img "customer"
+    - heading "Kamlesh Kumar Secured loan in Feb 2025" [level=3]
+  - listitem:
+    - paragraph: Throughout my loan process, the Rupyy team assisted me in every possible way. I took the vehicle delivery on the same day because the loan approval process was so fast. Thank you to the team for your kind support.
+    - img "customer"
+    - heading "Mahesh Gupta Secured loan in Feb 2025" [level=3]
+  - listitem:
+    - paragraph: Amazing, hassle-free experience I had here. Very smooth process without any extra documentation. Special thanks to the team at Rupyy for being understanding and supportive. Thank you, Rupyy!
+    - img "customer"
+    - heading "Babu Lal Secured loan in Feb 2025" [level=3]
+  - listitem:
+    - paragraph: I had an excellent experience with the team at Rupyy during the process of my car loan disbursement. Everything was handled with exceptional swiftness, making the process smooth and hassle-free
+    - img "customer"
+    - heading "Anshuman Bhattacharya Secured loan in Jan 2025" [level=3]
+  - listitem:
+    - paragraph: Good experience with Rupyy and employees are very cooperative. Special thanks to the POC who helped me a lot.
+    - img "customer"
+    - heading "Anuj Dhimaan Secured loan in Dec 2024" [level=3]
+  - listitem:
+    - paragraph: Great experience with the POC in rupyy finance, single day loan disbursement. Great work keep it up. Thanks rupyy finance.
+    - img "customer"
+    - heading "Yaduveer Prajapati Secured loan in Dec 2024" [level=3]
+- button "Previous Slide": 
+- button "Next Slide": 
+- heading "Rupyy in News" [level=2]
+- list:
+  - listitem:
+    - 'link "customer IPO-bound CarDekho’s fintech arm Rupyy looks to disburse Rs 900-1,200 cr in used commercial vehicle financing in FY25 Source: moneycontrol.com"':
+      - img "customer"
+      - paragraph: IPO-bound CarDekho’s fintech arm Rupyy looks to disburse Rs 900-1,200 cr in used commercial vehicle financing in FY25
+      - 'heading "Source: moneycontrol.com" [level=3]'
+  - listitem:
+    - 'link "customer How CarDekho’s Rupyy Is Democratising India’s Auto Loans Landscape Source: inc42.com"':
+      - img "customer"
+      - paragraph: How CarDekho’s Rupyy Is Democratising India’s Auto Loans Landscape
+      - 'heading "Source: inc42.com" [level=3]'
+  - listitem:
+    - 'link "customer Rupyy hits USD 2 billion ARR milestone Source: autocarpro.in"':
+      - img "customer"
+      - paragraph: Rupyy hits USD 2 billion ARR milestone
+      - 'heading "Source: autocarpro.in" [level=3]'
+  - listitem:
+    - 'link "customer AI-Driven Innovations Transforming Fintech: Mayank Kapoor, CTO, rupyy, CarDekho Group Source: expresscomputer.in"':
+      - img "customer"
+      - paragraph: "AI-Driven Innovations Transforming Fintech: Mayank Kapoor, CTO, rupyy, CarDekho Group"
+      - 'heading "Source: expresscomputer.in" [level=3]'
+  - listitem:
+    - 'link "customer Rupyy expands into personal loans to diversify beyond auto financing Source: bfsi.eletsonline.com"':
+      - img "customer"
+      - paragraph: Rupyy expands into personal loans to diversify beyond auto financing
+      - 'heading "Source: bfsi.eletsonline.com" [level=3]'
+  - listitem:
+    - 'link "customer Rupyy enters EV financing business, targets 10% market share Source: financialexpress.com"':
+      - img "customer"
+      - paragraph: Rupyy enters EV financing business, targets 10% market share
+      - 'heading "Source: financialexpress.com" [level=3]'
+  - listitem:
+    - 'link "customer IndusInd Bank Partners with Rupyy to offer 100% Paperless Loans for Used-Cars Source: indusind.com"':
+      - img "customer"
+      - paragraph: IndusInd Bank Partners with Rupyy to offer 100% Paperless Loans for Used-Cars
+      - 'heading "Source: indusind.com" [level=3]'
+  - listitem:
+    - 'link "customer IPO-bound CarDekho’s fintech arm Rupyy to enter into personal-loan segment Source: moneycontrol.com"':
+      - img "customer"
+      - paragraph: IPO-bound CarDekho’s fintech arm Rupyy to enter into personal-loan segment
+      - 'heading "Source: moneycontrol.com" [level=3]'
+  - listitem:
+    - 'link "customer CarDekho''s Rupyy expands horizon: To finance used commercial vehicles in FY25 Source: livemint.com"':
+      - img "customer"
+      - paragraph: "CarDekho's Rupyy expands horizon: To finance used commercial vehicles in FY25"
+      - 'heading "Source: livemint.com" [level=3]'
+  - listitem:
+    - 'link "customer PhonePe launches secured loans in partnership with a bunch of NBFCs Source: economictimes.indiatimes.com"':
+      - img "customer"
+      - paragraph: PhonePe launches secured loans in partnership with a bunch of NBFCs
+      - 'heading "Source: economictimes.indiatimes.com" [level=3]'
+- button "Previous Slide": 
+- button "Next Slide": 
+- button "Start chatbot":
+  - img "Start chatbot"
+- heading "Top Bank Personal Loan" [level=3]
+- list:
+  - listitem:
+    - link "Yes Bank Personal Loan"
+  - listitem:
+    - link "Indusind Bank Personal Loan"
+  - listitem:
+    - link "Axis Personal Loan"
+  - listitem:
+    - link "Kotak Mahindra Personal Loan"
+  - listitem:
+    - link "ICICI Personal Loan"
+  - listitem:
+    - link "HDFC Personal Loan"
+  - listitem:
+    - link "Bank of Baroda Personal Loan"
+  - listitem:
+    - link "IDFC Bank Personal Loan"
+- heading "Vehicle Loans" [level=3]
+- list:
+  - listitem:
+    - link "Two Wheeler Loan"
+  - listitem:
+    - link "Used Car Loan"
+  - listitem:
+    - link "Loan Against Car"
+  - listitem:
+    - link "Green Car Loan"
+  - listitem:
+    - link "Car Loan"
+- heading "Top NBFC Personal Loan" [level=3]
+- list:
+  - listitem:
+    - link "Bajaj Finserv"
+  - listitem:
+    - link "L&T Finance"
+  - listitem:
+    - link "Moneyview"
+  - listitem:
+    - link "Mahindra Finance"
+  - listitem:
+    - link "Dhani Personal Loan"
+- heading "Calculators" [level=3]
+- list:
+  - listitem:
+    - link "Personal Loan EMI Calculator"
+  - listitem:
+    - link "Car Loan EMI Calculator"
+  - listitem:
+    - link "Bike Loan EMI Calculator"
+  - listitem:
+    - link "Balance Transfer Calculator"
+- img "Rupyy Logo"
+- paragraph: "Your one-stop shop for all finance needs. Avail 100% paperless loan in less than 24 hours. Address : 7th Floor, Imperia Mindspace, Golf Course Ext Rd, Sector 62, Gurugram, Haryana 122001."
+- paragraph:
+  - text: "Useful Links: Know more about"
+  - link "Girnar Capital"
+- heading "Loans" [level=3]
+- list:
+  - listitem:
+    - link "Personal Loan"
+  - listitem:
+    - link "Instant Loan"
+  - listitem:
+    - link "Business Loan"
+- heading "Knowledge Centre" [level=3]
+- list:
+  - listitem:
+    - link "Blogs"
+  - listitem:
+    - link "FAQ"
+- heading "General" [level=3]
+- list:
+  - listitem:
+    - link "About Us"
+  - listitem:
+    - link "Become a Partner"
+  - listitem:
+    - link "Contact Us"
+- heading "Legal" [level=3]
+- list:
+  - listitem:
+    - link "Terms & Conditions"
+  - listitem:
+    - link "Privacy Policy"
+- heading "Follow us" [level=3]
+- list:
+  - listitem:
+    - link "Follow Rupyy on Facebook":
+      - button "Social Media Handle Icon": 
+  - listitem:
+    - link "Follow Rupyy on twitter":
+      - button "Social Media Handle Icon":
+        - img "Twitter"
+  - listitem:
+    - link "Follow Rupyy on Linkedin":
+      - button "Social Media Handle Icon":
+        - img "Linkedin"
+  - listitem:
+    - link "Follow Rupyy on Instagram":
+      - button "Social Media Handle Icon": 
+- text: You can always reach out to us on
+- link "support@rupyy.com":
+  - strong: support@rupyy.com
+- text: © 2022 Rupyy. All rights reserved. Privacy Policy | Cookie Policy CarDekho Group Ventures
+- list:
+  - listitem:
+    - link "Cardekho":
+      - img "Cardekho"
+  - listitem:
+    - link "InsuranceDekho":
+      - img "InsuranceDekho"
+  - listitem:
+    - link "BikeDekho":
+      - img "BikeDekho"
+  - listitem:
+    - link "ZigWheels":
+      - img "ZigWheels"
+- alert
+```
+
+# Test source
+
+```ts
+   1 | // Removed broken test definition
+   2 | const { test, expect } = require('@playwright/test');
+   3 | const { ENV } = require('../utils/environment');
+   4 | const BaseClass = require('../pages/BaseClass');
+   5 | const { INPUT_CONSTANTS } = require('../utils/InputConstants');
+   6 | const { SELECTORS } = require('../utils/Selectors');
+   7 | const { assert, log } = require('console');
+   8 |
+   9 | test('Landing page of rupyy.com loads and key elements are visible', async ({ page }) => {
+  10 |   const baseClass = new BaseClass(page);
+  11 |
+  12 |   // 1. Go to rupyy.com
+  13 |   await baseClass.navigateTo('https://rupyy.com/');
+  14 |   const title = await baseClass.getPageTitle();
+  15 |   expect(title).toContain('Rupyy');
+  16 |
+  17 |   // 2. Check logo is visible
+  18 |   expect(await baseClass.isVisible('img[alt="Rupyy"]')).toBe(true);
+  19 |
+  20 |   // 3. Check main headline is present
+  21 |   expect(await baseClass.isVisible('h1')).toBe(true);
+  22 |
+  23 |   // 4. Check at least one CTA button is visible (e.g., Start chatbot or Apply Now)
+  24 |   const ctaVisible = await baseClass.isVisible('button:has-text("Start chatbot")') || await baseClass.isVisible('button:has-text("Apply Now")');
+> 25 |   expect(ctaVisible).toBe(true);
+     |                      ^ Error: expect(received).toBe(expected) // Object.is equality
+  26 |
+  27 |   // 5. Optionally take a screenshot
+  28 |   await baseClass.takeScreenshot('rupyy_landing.png');
+  29 | });
+  30 |
+```
