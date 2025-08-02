@@ -20,6 +20,11 @@ test('Landing page of rupyy.com loads and key elements are visible', async ({ pa
   // 3. Check main headline is present
   expect(await baseClass.isVisible('h1')).toBe(true);
 
-  // 5. Optionally take a screenshot
-  await baseClass.takeScreenshot('rupyy_landing.png');
+  try {
+    // 5. Optionally take a screenshot
+    await baseClass.takeScreenshot('rupyy_landing.png');
+  } catch (e) {
+    console.warn("Screenshot failed:", e);
+  }
+
 });
