@@ -19,16 +19,17 @@ pipeline {
         }
     }
 
-    post {
-        always {
-            echo 'Post actions running...'
-            emailext(
-                subject: "Build: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
-                body: """<p>Build Result: ${currentBuild.currentResult}</p>
-                         <p>Console: <a href="${env.BUILD_URL}">${env.BUILD_URL}</a></p>""",
-                to: 'agarwalrajat01@gmail.com',
-                mimeType: 'text/html'
-            )
-        }
+    ppost {
+    always {
+        emailext(
+            to: 'agarwalrajat01@gmail.com',
+            subject: "Build ${currentBuild.fullDisplayName} - ${currentBuild.currentResult}",
+            body: """<p>Hi Rajat,</p>
+<p>The Jenkins job <b>${env.JOB_NAME}</b> has completed with status: <b>${currentBuild.currentResult}</b>.</p>
+<p>Check the details at: <a href="${env.BUILD_URL}">${env.BUILD_URL}</a></p>""",
+            mimeType: 'text/html'
+        )
     }
+}
+
 }
