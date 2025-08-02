@@ -23,11 +23,10 @@ pipeline {
     always {
         emailext(
             to: 'agarwalrajat01@gmail.com',
-            subject: "Build ${currentBuild.fullDisplayName} - ${currentBuild.currentResult}",
-            body: """<p>Hi Rajat,</p>
-<p>The Jenkins job <b>${env.JOB_NAME}</b> has completed with status: <b>${currentBuild.currentResult}</b>.</p>
-<p>Check the details at: <a href="${env.BUILD_URL}">${env.BUILD_URL}</a></p>""",
-            mimeType: 'text/html'
+            subject: "Test Email",
+            body: "This is a plain text email to test Jenkins email delivery.",
+            to: "agarwalrajat01@gmail.com",
+            mimeType: 'text/plain'
         )
     }
 }
