@@ -2,25 +2,31 @@ pipeline {
     agent any
 
     stages {
-        stage('Checkout') {
+        stage('Install & Test') {
             steps {
-                git url: 'https://agarwalrajat01@bitbucket.org/playwright_playground/playwright_demo_project.git', branch: 'main'
-            }
-        }
-
-        stage('Install Dependencies') {
-            steps {
-                sh 'npm install'
-            }
-        }
-
-        
-
-        stage('Run Tests') {
-            steps {
-                sh 'npx playwright install'
+                sh 'npm ci'
                 sh 'npx playwright test'
             }
+        }
+
+        stage('Generate Report') {
+            steps {
+                sh 'npx playwright show-report --output=playwright-report'
+            }
+        }
+    }
+
+    post {
+        always {
+            archiveArtifacts artifacts: 'playwright-report/**', fingerprint: true
+
+            emailext (
+                to: 'agarwalrajat01@gmail.com',
+                subject: "Build #${env.BUILD_NUMBER} - ${currentBuild.currentResult}",
+                body: "Check attached test report.\nBuild URL: ${env.BUILD_URL}",
+                attachmentsPattern: 'playwright-report/index.html',
+                mimeType: 'text/html'
+            )
         }
     }
 }
