@@ -1,32 +1,64 @@
 pipeline {
     agent any
 
+    environment {
+        // Optional: Add your custom env vars here
+        NODE_ENV = "test"
+    }
+
     stages {
-        stage('Install & Test') {
+        stage('Checkout') {
             steps {
-                sh 'npm ci'
+                echo "Checking out code..."
+                checkout scm
+            }
+        }
+
+        stage('Install Dependencies') {
+            steps {
+                echo "Installing dependencies..."
+                sh 'npm install'
+            }
+        }
+
+        stage('Run Tests') {
+            steps {
+                echo "Running Playwright tests..."
                 sh 'npx playwright test'
             }
         }
 
-        stage('Generate Report') {
+        stage('Archive Reports') {
             steps {
-                sh 'npx playwright show-report --output=playwright-report'
+                echo "Archiving test reports..."
+                archiveArtifacts artifacts: '**/test-results/**/*.*', allowEmptyArchive: true
             }
         }
     }
 
     post {
         always {
-            archiveArtifacts artifacts: 'playwright-report/**', fingerprint: true
+            echo "Build finished. Sending email..."
 
-            emailext (
+            emailext(
                 to: 'agarwalrajat01@gmail.com',
-                subject: "Build #${env.BUILD_NUMBER} - ${currentBuild.currentResult}",
-                body: "Check attached test report.\nBuild URL: ${env.BUILD_URL}",
-                attachmentsPattern: 'playwright-report/index.html',
+                subject: "Jenkins Build #${env.BUILD_NUMBER} - ${currentBuild.currentResult}",
+                body: """
+                    <p><b>Build Result:</b> ${currentBuild.currentResult}</p>
+                    <p><b>Project:</b> ${env.JOB_NAME}</p>
+                    <p><b>Build Number:</b> ${env.BUILD_NUMBER}</p>
+                    <p><b>Build URL:</b> <a href="${env.BUILD_URL}">${env.BUILD_URL}</a></p>
+                """,
                 mimeType: 'text/html'
             )
+        }
+
+        failure {
+            echo "Build failed!"
+        }
+
+        success {
+            echo "Build passed!"
         }
     }
 }
