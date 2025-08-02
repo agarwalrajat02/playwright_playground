@@ -19,7 +19,7 @@ pipeline {
         }
     }
 
-    ppost {
+    post {
     always {
         emailext(
             to: 'agarwalrajat01@gmail.com',
