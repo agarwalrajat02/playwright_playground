@@ -21,27 +21,12 @@ pipeline {
 
     post {
         always {
-            echo 'This runs always'
-        }
-        success {
-            echo 'Build succeeded'
-        }
-        failure {
-            echo 'Build failed'
-        }
-        unstable {
-            echo 'Build is unstable'
-        }
-        changed {
-            echo 'Build status changed'
-        }
-        // ✅ Email step (place here)
-        always {
-            emailext (
+            echo 'Post actions running...'
+            emailext(
                 subject: "Build: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
                 body: """<p>Build Result: ${currentBuild.currentResult}</p>
                          <p>Console: <a href="${env.BUILD_URL}">${env.BUILD_URL}</a></p>""",
-                to: 'agarwalrajat01@gmail.com',
+                to: 'your.email@gmail.com',
                 mimeType: 'text/html'
             )
         }
