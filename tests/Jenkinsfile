@@ -61,4 +61,15 @@ pipeline {
             echo "Build passed!"
         }
     }
+    post {
+    always {
+        emailext (
+            subject: "Jenkins Job: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+            body: """<p>Build Result: ${currentBuild.currentResult}</p>
+                     <p>Check console output at <a href="${env.BUILD_URL}">${env.BUILD_URL}</a></p>""",
+            to: 'agarwalrajat01@gmail.com',
+            mimeType: 'text/html'
+        )
+    }
+}
 }
