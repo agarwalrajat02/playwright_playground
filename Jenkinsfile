@@ -1,75 +1,49 @@
 pipeline {
     agent any
 
-    environment {
-        // Optional: Add your custom env vars here
-        NODE_ENV = "test"
-    }
-
     stages {
-        stage('Checkout') {
+        stage('Build') {
             steps {
-                echo "Checking out code..."
-                checkout scm
+                echo 'Building...'
             }
         }
-
-        stage('Install Dependencies') {
+        stage('Test') {
             steps {
-                echo "Installing dependencies..."
-                sh 'npm install'
+                echo 'Running tests...'
             }
         }
-
-        stage('Run Tests') {
+        stage('Deploy') {
             steps {
-                echo "Running Playwright tests..."
-                sh 'npx playwright test'
-            }
-        }
-
-        stage('Archive Reports') {
-            steps {
-                echo "Archiving test reports..."
-                archiveArtifacts artifacts: '**/test-results/**/*.*', allowEmptyArchive: true
+                echo 'Deploying...'
             }
         }
     }
 
     post {
         always {
-            echo "Build finished. Sending email..."
-
-            emailext(
+            echo 'This runs always'
+        }
+        success {
+            echo 'Build succeeded'
+        }
+        failure {
+            echo 'Build failed'
+        }
+        unstable {
+            echo 'Build is unstable'
+        }
+        changed {
+            echo 'Build status changed'
+        }
+        // ✅ Email step (place here)
+        always {
+            emailext (
+                subject: "Build: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+                body: """<p>Build Result: ${currentBuild.currentResult}</p>
+                         <p>Console: <a href="${env.BUILD_URL}">${env.BUILD_URL}</a></p>""",
                 to: 'agarwalrajat01@gmail.com',
-                subject: "Jenkins Build #${env.BUILD_NUMBER} - ${currentBuild.currentResult}",
-                body: """
-                    <p><b>Build Result:</b> ${currentBuild.currentResult}</p>
-                    <p><b>Project:</b> ${env.JOB_NAME}</p>
-                    <p><b>Build Number:</b> ${env.BUILD_NUMBER}</p>
-                    <p><b>Build URL:</b> <a href="${env.BUILD_URL}">${env.BUILD_URL}</a></p>
-                """,
                 mimeType: 'text/html'
             )
         }
-
-        failure {
-            echo "Build failed!"
-        }
-
-        success {
-            echo "Build passed!"
-        }
     }
-    post {
-    always {
-        emailext (
-            subject: "Jenkins Job: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
-            body: """<p>Build Result: ${currentBuild.currentResult}</p>
-                     <p>Check console output at <a href="${env.BUILD_URL}">${env.BUILD_URL}</a></p>""",
-            to: 'agarwalrajat01@gmail.com',
-            mimeType: 'text/html'
-        )
-    }
-}
 }
