@@ -1,0 +1,24 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+                git url: 'https://agarwalrajat01@bitbucket.org/playwright_playground/playwright_demo_project.git', branch: 'main'
+            }
+        }
+
+        stage('Install Dependencies') {
+            steps {
+                sh 'npm install'
+            }
+        }
+
+        stage('Run Tests') {
+            steps {
+                sh 'npx playwright install'
+                sh 'npx playwright test'
+            }
+        }
+    }
+}

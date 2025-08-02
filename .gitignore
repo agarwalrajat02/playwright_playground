@@ -8,6 +8,8 @@ allure-results/
 blob-report/
 playwright-report/
 playwright/.cache/
+
+
 coverage/
 
 # Logs
