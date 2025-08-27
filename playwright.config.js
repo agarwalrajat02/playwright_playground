@@ -13,7 +13,7 @@ export default defineConfig({
     video: 'on',
     actionTimeout: 30000,  // 30s for each action like `click`
     screenshot: 'on',
-    headless: isCI ? true : false,  },
+    headless: true,
 
   projects: [
     {
