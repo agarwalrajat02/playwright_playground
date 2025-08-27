@@ -1,12 +1,7 @@
-// Removed broken test definition
-const { test, expect } = require('@playwright/test');
-const { ENV } = require('../utils/environment');
+const { test, expect, chromium } = require('@playwright/test');
 const BaseClass = require('../pages/BaseClass');
-const { INPUT_CONSTANTS } = require('../utils/InputConstants');
-const { SELECTORS } = require('../utils/Selectors');
-const { assert, log } = require('console');
 
-test('Landing page of rupyy.com loads and key elements are visible', async ({ page }) => {
+test('Landing page of rupyy.com loads and key elements are visible', async ({ page, context }) => {
   const baseClass = new BaseClass(page);
 
   // 1. Go to rupyy.com
@@ -20,11 +15,5 @@ test('Landing page of rupyy.com loads and key elements are visible', async ({ pa
   // 3. Check main headline is present
   expect(await baseClass.isVisible('h1')).toBe(true);
 
-  try {
-    // 5. Optionally take a screenshot
-    await baseClass.takeScreenshot('rupyy_landing.png');
-  } catch (e) {
-    console.warn("Screenshot failed:", e);
-  }
-
+  
 });
