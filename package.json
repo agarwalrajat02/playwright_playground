@@ -1,22 +1,20 @@
 {
   "name": "playwright-project",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "private": true,
+  "type": "module",
   "scripts": {
-    "test": "npx playwright test",
-    "test:clean": "rm -rf allure-results && npx playwright test",
-    "format": "prettier --write ."
-  },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "playwright-stealth": "^0.0.1"
+    "prep": "npx playwright install --with-deps",
+    "test": "playwright test",
+    "test:staging": "cross-env ENV=staging playwright test",
+    "test:prod": "cross-env ENV=prod playwright test",
+    "report": "playwright show-report"
   },
   "devDependencies": {
     "@playwright/test": "^1.51.1",
-    "@types/node": "^22.13.5",
     "allure-playwright": "^3.2.1",
-    "prettier": "^2.5.1"
+    "allure-commandline": "^2.29.0",
+    "cross-env": "^7.0.3",
+    "prettier": "^3.3.3"
   }
 }

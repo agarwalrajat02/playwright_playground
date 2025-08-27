@@ -1,26 +1,19 @@
-# Node modules
+# Node
 node_modules/
-
-# Test result directories
-test-results/
-allure-report/
-allure-results/
-blob-report/
-playwright-report/
-playwright/.cache/
-
-
 coverage/
-# Reports and artifacts
-allure-results/
-allure-report/
+dist/
+build/
+tmp/
+
+# Playwright reports & artifacts
 playwright-report/
 test-results/
+allure-report/
+allure-results/
 blob-report/
-
-# OS junk
-.DS_Store
-
+playwright/.cache/
+user-data/
+storageState.json   # ✅ add this if you save auth/session state
 
 # Logs
 *.log
@@ -31,27 +24,20 @@ yarn-error.log*
 # OS files
 .DS_Store
 Thumbs.db
-# Environment and config
-.env
-.env.*.local
-# IDEs
+
+# IDEs / Editors
 .vscode/
 .idea/
-
-# Output & dist
-dist/
-build/
-
-# JetBrains IDE config
 *.iml
 *.ipr
 *.iws
 out/
 
-# Optional: ignore screenshots/videos
+# Environment configs
+.env
+.env.*.local
+
+# Optional: ignore screenshots/videos (unless you want to commit them)
 *.png
 *.webm
-
-# Playwright user data
-user-data/
-tmp/
+*.mp4

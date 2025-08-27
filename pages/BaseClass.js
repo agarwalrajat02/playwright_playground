@@ -1,14 +1,12 @@
-const { expect } = require('@playwright/test'); // ✅ Correct
-const fs = require('fs');
-
-class BaseClass {
+// ESM version of your BaseClass
+export default class BaseClass {
   constructor(page) {
     this.page = page;
     this.storageFile = 'storageState.json';
   }
 
-  async navigateTo(url) {
-    await this.page.goto(url);
+  async navigateTo(urlOrPath) {
+    await this.page.goto(urlOrPath, { waitUntil: 'domcontentloaded' });
   }
 
   async click(selector) {
@@ -29,14 +27,6 @@ class BaseClass {
 
   async fillByRole(role, name, value) {
     await this.page.getByRole(role, { name }).fill(value);
-  }
-
-  async expectByRole(role, name, assertion) {
-    await expect(this.page.getByRole(role, { name })).toHaveText(assertion);
-  }
-
-  assertion(role, name) {
-    return this.page.getByRole(role, { name }); // ✅ Returns a Locator
   }
 
   async getText(selector) {
@@ -65,12 +55,10 @@ class BaseClass {
   }
 
   async getPageTitle() {
-    return await this.page.title();
+    return this.page.title();
   }
 
   async isVisible(selector) {
-    return await this.page.isVisible(selector);
+    return this.page.isVisible(selector);
   }
 }
-
-module.exports = BaseClass;
