@@ -11,6 +11,16 @@ playwright/.cache/
 
 
 coverage/
+# Reports and artifacts
+allure-results/
+allure-report/
+playwright-report/
+test-results/
+blob-report/
+
+# OS junk
+.DS_Store
+
 
 # Logs
 *.log
