@@ -6,14 +6,15 @@ export default defineConfig({
     ['allure-playwright']
   ],
 
-  timeout: 60000,          // 60s for the entire test
+  timeout: 60000, // 60s for the entire test
 
   use: {
     trace: 'on',
     video: 'on',
-    actionTimeout: 30000,  // 30s for each action like `click`
+    actionTimeout: 30000, // 30s per action like `click`
     screenshot: 'on',
     headless: true,
+  },
 
   projects: [
     {
