@@ -11,10 +11,9 @@ export default defineConfig({
   use: {
     trace: 'on',
     video: 'on',
-    screenshot: 'on',
     actionTimeout: 30000,  // 30s for each action like `click`
-    headless: false,
-  },
+    screenshot: 'on',
+    headless: isCI ? true : false,  },
 
   projects: [
     {
